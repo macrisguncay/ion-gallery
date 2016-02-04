@@ -12,7 +12,8 @@
       restrict: 'AE',
       scope: {
         ionGalleryItems: '=ionGalleryItems',
-        ionGalleryRowSize: '=?ionGalleryRow'
+        ionGalleryRowSize: '=?ionGalleryRow',
+        ionGalleryShareable: '&'
       },
       controller: controller,
       link: link,
@@ -39,6 +40,10 @@
           }
         });
       }());
+
+      $scope.shareImage = function(imageSrc){
+        $scope.ionGalleryShareable({imageSrc: imageSrc});
+      };
     }
 
     function link(scope, element, attrs) {
